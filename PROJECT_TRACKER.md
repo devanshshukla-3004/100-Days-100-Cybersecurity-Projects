@@ -18,7 +18,7 @@ A project may have more than one status note where that makes its state clearer.
 |---:|---|---|---|---|---|
 | 01 | [LogSentinel](https://github.com/devanshshukla-3004/LogSentinel) | Defensive security, authentication logs | Build explainable, rule-based detections for suspicious authentication activity | [Repository](https://github.com/devanshshukla-3004/LogSentinel) · [Live dashboard](https://logsentinel-xon2pv6gnpi2cs7rtnj7ur.streamlit.app/) | Built and published; live demo available |
 | 02 | [NetRecon](https://github.com/devanshshukla-3004/NetRecon) | Network security, reconnaissance | Implement a TCP connect scanner, service labels, optional banner collection, and JSON reporting | [Repository](https://github.com/devanshshukla-3004/NetRecon) | Initial implementation published; local verification to be recorded |
-| 03 | — | To be selected | — | — | Planned |
+| 03 | [FileSentry](https://github.com/devanshshukla-3004/FileSentry) | Host security, file integrity monitoring | Use SHA-256 baselines to detect modified, deleted, and new files | [Repository](https://github.com/devanshshukla-3004/FileSentry) | Initial implementation and tests published; local test execution and manual verification pending |
 | 04 | — | To be selected | — | — | Planned |
 | 05 | — | To be selected | — | — | Planned |
 | 06 | — | To be selected | — | — | Planned |

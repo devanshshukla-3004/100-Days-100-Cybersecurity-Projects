@@ -15,34 +15,36 @@
 
 ## 🎯 About the challenge
 
-I'm working through **100 cybersecurity projects in 100 days** to strengthen my practical skills by building tools, testing ideas in authorized environments, and documenting what I learn.
+I'm working through **100 cybersecurity projects in 100 days** to strengthen practical skills by building tools, testing ideas in authorized environments, and documenting what I learn.
 
-The challenge will explore different areas of cybersecurity instead of repeating one project format. Depending on the problem, a project might be a command-line utility, a defensive analysis tool, a lab, a script, or a small application.
+The challenge explores different areas of cybersecurity rather than repeating one project format. Projects may be command-line utilities, defensive analysis tools, labs, scripts, or small applications.
 
-This repository is the **central index** for the challenge. Each project has its own repository so its code, setup instructions, evidence, and limitations can be documented independently.
+This repository is the **central index** for the challenge. Each project has its own repository so code, setup instructions, evidence, and limitations can be documented independently.
 
 ## 🧭 Challenge principles
 
-- **Build for understanding:** explain the problem and the approach, not just the final result.
+- **Build for understanding:** explain the problem and the approach, not just the result.
 - **Be honest about status:** distinguish planned, implemented, tested, and published work.
 - **Document reproducibly:** include setup and usage instructions whenever practical.
 - **Prioritize responsible security:** test only on systems and data I own or have explicit permission to assess.
-- **Learn across domains:** explore defensive security, network security, application security, digital forensics, cryptography, and related topics as the challenge develops.
+- **Learn across domains:** explore defensive security, network security, application security, digital forensics, cryptography, and more.
 - **Improve iteratively:** document bugs, limitations, and follow-up improvements rather than claiming a tool is perfect.
 
 ## 📌 Progress
 
-**Projects listed:** 2  
-**Completed and verified:** To be updated as each project meets the challenge's completion criteria.
+**Projects listed:** 4  
+**Day 04 local verification:** PhishLens — 8 unit tests passed; URL and email CLI commands manually executed.
 
-See the [100-day project tracker](PROJECT_TRACKER.md) for current status. A repository being published does not automatically mean every feature has been independently tested.
+See the [100-day project tracker](PROJECT_TRACKER.md) for project statuses and the [learning log](LEARNING_LOG.md) for technical takeaways.
 
 ## 🧪 Project index
 
 | Day | Project | Focus | Repository | Status |
 |---|---|---|---|---|
-| 01 | **LogSentinel** | Defensive security · Authentication log analysis and rule-based threat detection | [Open repository](https://github.com/devanshshukla-3004/LogSentinel) · [Live dashboard](https://logsentinel-xon2pv6gnpi2cs7rtnj7ur.streamlit.app/) | Built and published; live demo available |
-| 02 | **NetRecon** | Network security · TCP reconnaissance and service discovery CLI | [Open repository](https://github.com/devanshshukla-3004/NetRecon) | Initial implementation published; local verification still to be recorded |
+| 01 | **LogSentinel** | Defensive security · Authentication log analysis and rule-based threat detection | [Repository](https://github.com/devanshshukla-3004/LogSentinel) · [Live dashboard](https://logsentinel-xon2pv6gnpi2cs7rtnj7ur.streamlit.app/) | Built and published; live demo available |
+| 02 | **NetRecon** | Network security · TCP reconnaissance and service discovery CLI | [Repository](https://github.com/devanshshukla-3004/NetRecon) | Initial implementation published; local verification still to be recorded |
+| 03 | **FileSentry** | Host security · File integrity monitoring | [Repository](https://github.com/devanshshukla-3004/FileSentry) | 8 unit tests passed; manual CLI checks verified baseline, clean scan, modified, deleted, and new-file detection |
+| 04 | **PhishLens** | Defensive security · Explainable phishing URL and email-text analysis | [Repository](https://github.com/devanshshukla-3004/PhishLens-Explainable-Phishing-URL-Email-Analyzer) · [Demo guide](https://github.com/devanshshukla-3004/PhishLens-Explainable-Phishing-URL-Email-Analyzer/blob/main/docs/DEMO_GUIDE.md) | 8 unit tests passed; URL and email CLI commands manually verified |
 
 ## 🗓️ How progress is tracked
 
@@ -54,20 +56,13 @@ Each project moves through these states:
 4. **Tested** — relevant tests or verification steps completed and documented.
 5. **Published** — repository documentation and project evidence are available.
 
-The tracker records the current state and links to each project's repository. The [learning log](LEARNING_LOG.md) captures key takeaways and issues worth revisiting.
+The tracker records current status. The learning log captures takeaways and issues worth revisiting.
 
 ## 🧰 What a project repository should include
 
-Where relevant to the project, I aim to provide:
-- A clear problem statement and feature list
-- Technologies and design/architecture notes
-- Installation and usage instructions
-- Tests or verification steps
-- Screenshots, example output, or a short demonstration
-- Known limitations and possible next steps
-- Responsible-use notes for security tools
+Where relevant, each project aims to provide a problem statement, technologies and design notes, installation and usage instructions, tests or verification steps, genuine screenshots or sample output, known limitations, and responsible-use notes.
 
-Not every project needs a web deployment. For example, a command-line utility can be demonstrated with reproducible local instructions and genuine terminal output.
+Not every project needs a web deployment. A command-line utility can be demonstrated with reproducible local instructions and genuine terminal output.
 
 ## 🤝 Follow the journey
 
@@ -79,7 +74,7 @@ I'll share project updates and weekly reflections on LinkedIn, including what I 
 
 ## ⚠️ Responsible use
 
-Cybersecurity tools can affect real systems. Projects in this challenge are for education, defensive work, and authorized testing. Do not use them against systems, networks, accounts, or data without permission. Follow applicable laws, policies, and the scope of any lab or engagement.
+Cybersecurity tools can affect real systems. Projects in this challenge are for education, defensive work, and authorized testing. Do not use them against systems, networks, accounts, or data without permission. Follow applicable laws, policies, and engagement scope.
 
 ---
 

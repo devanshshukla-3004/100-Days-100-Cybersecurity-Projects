@@ -5,13 +5,13 @@ import argparse
 import csv
 import json
 import re
-from collections import Counter, defaultdict
+from collections import defaultdict
 from dataclasses import asdict, dataclass
-from datetime import datetime
 from pathlib import Path
 from urllib.parse import unquote
 
-LOG_RE = re.compile(r'^(?P<ip>\\S+) \\S+ \\S+ \\[(?P<time>[^]]+)\\] "(?P<method>[A-Z]+) (?P<target>.*?) HTTP/[^"]+" (?P<status>\\d{3}) (?P<size>\\S+)(?: "(?P<referer>[^"]*)" "(?P<ua>[^"]*)")?.*$')
+LOG_RE = re.compile(r'^(?P<ip>\S+) \S+ \S+ \[(?P<time>[^]]+)\] "(?P<method>[A-Z]+) (?P<target>.*?) HTTP/[^"]+" (?P<status>\d{3}) (?P<size>\S+)(?: "(?P<referer>[^"]*)" "(?P<ua>[^"]*)")?.*$')
+
 @dataclass
 class AccessEvent:
     line: int
@@ -21,6 +21,7 @@ class AccessEvent:
     target: str
     status: int
     user_agent: str
+
 @dataclass
 class Finding:
     rule_id: str
@@ -41,11 +42,13 @@ def analyze(events, threshold=5):
     findings = []
     by_ip = defaultdict(list)
     patterns = [
-        ("WEB_SQLI", re.compile(r"(union(?:%20|\\s)+select|select.+from|or(?:%20|\\s)+1=1|sleep\\()", re.I), "HIGH", "Review the request and validate input handling."),
+        ("WEB_SQLI", re.compile(r"(union(?:%20|\s)+select|select.+from|or(?:%20|\s)+1=1|sleep\()", re.I), "HIGH", "Review the request and validate input handling."),
         ("WEB_XSS", re.compile(r"(<script|%3cscript|javascript:|onerror=)", re.I), "HIGH", "Inspect output encoding and request context."),
-        ("WEB_PATH_TRAVERSAL", re.compile(r"(\\.\\./|%2e%2e%2f|%2e%2e\\\\)", re.I), "HIGH", "Review path normalization and file-access controls."),
+        ("WEB_PATH_TRAVERSAL", re.compile(r"(\.\./|%2e%2e%2f|%2e%2e\\)", re.I), "HIGH", "Review path normalization and file-access controls."),
     ]
     for e in events:
+        if e is None:
+            continue
         by_ip[e.ip].append(e)
         decoded = unquote(e.target)
         for rule, pattern, severity, rec in patterns:

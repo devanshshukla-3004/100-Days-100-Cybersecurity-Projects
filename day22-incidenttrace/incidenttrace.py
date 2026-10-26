@@ -117,7 +117,7 @@ def classify(event: dict[str, Any]) -> str:
     text = " ".join((event.get("message", ""), event.get("event_type", ""), event.get("event_id", ""))).lower()
     if any(term in text for term in FAILED_TERMS): return "auth_failure"
     if any(term in text for term in SUCCESS_TERMS): return "auth_success"
-    if any(term in text for term in PRIV_TERMS): return "privilege_change"
+    if any(term in text for term in PRIV_TERMS) or event.get("event_id", "") in {"4672", "4728", "4732", "4756"}: return "privilege_change"
     if "process create" in text or "process creation" in text or (event.get("event_id") in {"4688", "1"} and "process" in text): return "process_creation"
     return "other"
 

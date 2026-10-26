@@ -1,0 +1,24 @@
+name: Day 22 WebVulnScan tests
+on:
+  push:
+    paths:
+      - "day22-webvulnscan/**"
+      - ".github/workflows/day22-webvulnscan.yml"
+  pull_request:
+    paths:
+      - "day22-webvulnscan/**"
+      - ".github/workflows/day22-webvulnscan.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: day22-webvulnscan
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m unittest discover -s tests -v

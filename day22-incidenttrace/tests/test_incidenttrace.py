@@ -41,6 +41,11 @@ class IncidentTraceTests(unittest.TestCase):
         self.assertEqual(classify(event), "privilege_change")
         self.assertTrue(any(x["rule_id"] == "PRIV-001" for x in analyze([event], [])["correlation_leads"]))
 
+    def test_windows_group_membership_event_id(self):
+        event = normalize_record({"timestamp":"2025-01-01T00:00:00Z", "event_id":"4732", "message":"A member was added to a security-enabled local group"})
+        self.assertEqual(classify(event), "privilege_change")
+        self.assertTrue(any(x["rule_id"] == "PRIV-001" for x in analyze([event], [])["correlation_leads"]))
+
     def test_timeline_sorted(self):
         events = [normalize_record({"timestamp":"2025-01-01T00:02:00Z","message":"later"}), normalize_record({"timestamp":"2025-01-01T00:01:00Z","message":"earlier"})]
         self.assertEqual(analyze(events, [])["timeline"][0]["message"], "earlier")
